@@ -8,6 +8,8 @@ import Chatbot from './pages/Chatbot';
 import SkillApiTesting from './pages/SkillApiTesting';
 import QuesType1 from './components/QuesType1';
 import QuesType2 from './components/QuesType2';
+import QuesType3 from './components/QuesType3';
+import CareerQuiz from './pages/CareerQuiz';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/skill-api-testing" index element= {<SkillApiTesting />} />
             <Route path="/q1" index element= {<QuesType1 />} />
             <Route path="/q2" index element= {<QuesType2 />} />
+            <Route path="/q3" index element= {<QuesType3 />} />
+            <Route path="/quiz" index element= {<CareerQuiz />} />
           </Route>
         </Routes>
     </Router>
