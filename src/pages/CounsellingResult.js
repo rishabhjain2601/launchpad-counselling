@@ -75,13 +75,13 @@ const CounsellingResult = () => {
         <h3 className="text-center font-montserrat mt-8 mb-3">Submitted !</h3>
         {/* Progress */}
         <div className="flex justify-center h-4">
-          <div className="progress"></div>
+          <div className="progress-result"></div>
         </div>
         {/* Result */}
         <div className="bg-[#111C25] w-11/12 md:w-10/12 mx-auto my-3 py-14 px-10 md:px-16 rounded-3xl">
           {/* stream and role */}
-          <div className="flex flex-col gap-4 md:flex md:flex-row md:flex-wrap md:justify-between">
-            <div className="flex items-center md:border-r">
+          <div className="flex flex-col items-center gap-3 mb-4 lg:flex-row lg:justify-center">
+            <div className="flex items-center">
               <img src={Stream} alt="stream" className="md:w-16 w-12" />
               <span className="mx-3 md:text-xl font-bold">
                 {CounsellingResult.streams.map((e, i) => {
@@ -93,7 +93,7 @@ const CounsellingResult = () => {
                 })}
               </span>
             </div>
-            <div className="flex items-center md:border-r">
+            <div className="flex items-center lg:border-l-2 lg:border-r-2 lg:px-10">
               <img
                 src={Role}
                 alt="stream"
