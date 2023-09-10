@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Role from "../assets/role-icon.png";
 import Stream from "../assets/stream-icon.png";
 import Exam from "../assets/exam-icon.png";
 import Card from "../utils/Card";
+import Button from "../utils/Button";
 
 const CounsellingResult = () => {
   // format of API responset
@@ -69,7 +70,7 @@ const CounsellingResult = () => {
 
   return (
     <>
-      <div className="">
+      <div>
         <h2 className="title">Result</h2>
         <h3 className="text-center font-montserrat mt-8 mb-3">Submitted !</h3>
         {/* Progress */}
@@ -77,40 +78,59 @@ const CounsellingResult = () => {
           <div className="progress"></div>
         </div>
         {/* Result */}
-        <div className="bg-[#111C25] w-10/12 mx-auto my-3 py-14 px-16 rounded-3xl">
+        <div className="bg-[#111C25] w-11/12 md:w-10/12 mx-auto my-3 py-14 px-10 md:px-16 rounded-3xl">
           {/* stream and role */}
-          <div className="flex justify-evenly">
-            <div className="flex items-center">
-              <img src={Stream} alt="stream" width={60} />
-              <span className="mx-3 text-xl font-bold">
+          <div className="flex flex-col gap-4 md:flex md:flex-row md:flex-wrap md:justify-between">
+            <div className="flex items-center md:border-r">
+              <img src={Stream} alt="stream" className="md:w-16 w-12" />
+              <span className="mx-3 md:text-xl font-bold">
                 {CounsellingResult.streams.map((e, i) => {
                   return (
-                    <span className="block">{i+1}. {e.name}</span>
-                  )
+                    <span className="block">
+                      {i + 1}. {e.name}
+                    </span>
+                  );
                 })}
               </span>
             </div>
-            <div className="flex items-center">
-              <img src={Role} alt="stream" width={60} />
-              <span className="mx-3 text-xl font-bold">
+            <div className="flex items-center md:border-r">
+              <img
+                src={Role}
+                alt="stream"
+                width={60}
+                className="md:w-16 w-12"
+              />
+              <span className="mx-3 md:text-xl font-bold">
                 {CounsellingResult.careers.map((e, i) => {
                   return e + ", ";
                 })}
               </span>
             </div>
             <div className="flex items-center">
-              <img src={Exam} alt="stream" width={60} />
-              <span className="mx-3 text-xl font-bold">
+              <img
+                src={Exam}
+                alt="stream"
+                width={60}
+                className="md:w-16 w-12"
+              />
+              <span className="mx-3 md:text-xl font-bold">
                 {CounsellingResult.competitiveExams.map((e, i) => {
                   return e + ", ";
                 })}
               </span>
             </div>
-            <div></div>
           </div>
           {/* university courses */}
-          <div className="mx-auto text-2xl m-10">
-            <table className="table-auto mx-auto">
+          <div className="md:text-2xl overflow-x-scroll md:overflow-hidden md:m-10">
+            <div
+              className="bg-white"
+              style={{ height: "1px", opacity: "10%" }}
+            />
+            <table className="table-auto md:mx-auto shrink">
+              <caption class="caption-top text-lg my-3 underline">
+                Some University courses you can consider!
+              </caption>
+
               <thead>
                 <tr className="border-2 bg-[#FFC803] text-black">
                   <th className="border-2 p-6">Undergraduate</th>
@@ -132,17 +152,19 @@ const CounsellingResult = () => {
             </table>
           </div>
           {/* university cards */}
-          <div className="flex flex-wrap justify-around mx-auto text-2xl">
+          <div className="bg-white" style={{ height: "1px", opacity: "10%" }} />
+          <div className="flex justify-around my-10 flex-wrap gap-5">
             {CounsellingResult.universities.map((ele, index) => {
               return <Card image={ele.image} name={ele.name} />;
             })}
           </div>
           {/* Reasoning */}
+          <div className="bg-white" style={{ height: "1px", opacity: "10%" }} />
           <div className="my-10">
-            <span className="underline block my-4 text-2xl">
+            <span className="md:underline block my-4 text-xl md:text-2xl">
               Why we Suggested you this path or career ?
             </span>
-            <div className="px-4 py-2 font-semibold text-xl bg-white text-black rounded-2xl">
+            <div className="px-4 py-2 font-semibold md:text-xl bg-white text-black rounded-2xl">
               <span>
                 As per your response in form we figured out that you should
                 choose following carrer path because of following reasons:
@@ -182,9 +204,9 @@ const CounsellingResult = () => {
               </div>
             </div>
           </div>
-          <div className="btn flex justify-between">
-            <button className="button">Take Quiz Again</button>
-            <button className="button">Go to Roadmap</button>
+          <div className="btn flex justify-between gap-1">
+            <Button fontSize="15px">Take Quiz Again</Button>
+            <Button fontSize="15px">Go to Roadmap</Button>
           </div>
         </div>
       </div>
