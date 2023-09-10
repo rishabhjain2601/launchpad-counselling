@@ -1,4 +1,73 @@
-body{
-  background: rgb(24, 24, 24);
+body {
+  background: #0a1117;
   color: white;
+}
+
+.font-montserrat {
+  font-family: Montserrat;
+  font-size: 23.548px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40.369px;
+}
+
+.progress {
+  width: 70%;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  background: #2bd500;
+}
+
+.button {
+  display: inline-flex;
+  padding: 15px 20px;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 8px;
+  background: #243241;
+  color: var(--fg-foreground-primary, #fff);
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.button:hover {
+  background: #1d2735;
+}
+
+.title {
+  color: var(--fg-foreground-primary, #fff);
+  text-align: center;
+  font-family: Aoboshi One;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px; /* 115.385% */
+  text-decoration-line: underline;
+}
+
+.card {
+  cursor: pointer;
+  display: flex;
+  width: 15rem;
+  height: 15rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2.73625rem;
+  border: 3.648px solid #2a3744;
+  background: #121e28;
+}
+
+.card-img {
+  transform: scale(2);
+  filter: brightness(1);
+}
+
+.card-img:hover {
+  filter: brightness(0.8);
+}
+
+.drop-shadow {
+  box-shadow: 0px 0px 20px 0px rgba(98, 126, 234, 0.3);
 }
