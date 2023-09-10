@@ -8,7 +8,7 @@ const QuesType2 = () => {
         setOption(e.target.value)
     }
     return (
-        <div className='rounded-3xl mx-auto my-auto text-xl bg-stone-800 w-[50vw] h-[355px] pt-5 pl-4'>
+        <div className='rounded-3xl mx-auto my-auto text-xl bg-gray-800 opacity-80 w-[50vw] h-[355px] pt-5 pl-4'>
             <div className='ml-[2%] mb-6'>
                 Q. Which of the following activities do you enjoy the most in your free time?
             </div>
@@ -23,10 +23,10 @@ const QuesType2 = () => {
                     <input type="radio" id='option4' className='mb-4 mr-2' value={"ans4"} checked={option==="ans4"} name='ans' onChange={onOptionChange}/>
                     <label htmlFor="option4">Reading and exploring different books and literature</label><br />
                     <input type="radio" id='option5' className='mr-2' value={"ans5"} checked={option==="ans5"} name='ans' onChange={onOptionChange}/>
-                    <label htmlFor="option5">Other : <input type="text" className='text-black outline-white pl-2 rounded-full w-[70%]' disabled={option!=="ans5"} /></label>
+                    <label htmlFor="option5">Other : <input type="text" className='text-black outline-white px-2 rounded-full w-[70%]' disabled={option!=="ans5"} /></label>
                 </div>
-                <button className='bg-stone-700 rounded ml-[3.5%] py-1 px-2'>Previous</button>
-                <button className='float-right bg-stone-700 rounded py-1 px-4 mr-[6.5%]'>Next</button>
+                <button className='bg-gray-600 rounded ml-[3.5%] py-1 px-2'>Previous</button>
+                <button className='float-right bg-gray-600 rounded py-1 px-4 mr-[6.5%]'>Next</button>
             </form>
         </div>
     )
