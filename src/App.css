@@ -11,7 +11,7 @@ body {
   line-height: 40.369px;
 }
 
-.progress {
+.progress-result {
   width: 70%;
   flex-shrink: 0;
   border-radius: 0.5rem;

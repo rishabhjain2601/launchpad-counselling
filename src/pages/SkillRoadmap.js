@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const SkillRoadmap = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div>SkillRoadmap</div>;
+};
 
-export default SkillRoadmap
+export default SkillRoadmap;
