@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../utils/Button";
 import Card from "../utils/Card";
 
 const Roadmap = () => {
+  const [step, setStep] = useState(0);
+
   const courses = [
     {
       title: "The Complete 2023 Web Development Bootcamp",
@@ -21,73 +23,61 @@ const Roadmap = () => {
     },
   ];
 
+  const skills = [
+    "HTML, CSS",
+    "Javascript",
+    "React JS",
+    "Node JS",
+    "Express JS",
+    "Mongo DB",
+    "NEXT JS",
+  ];
+
+  const handlePrev = () => {
+    if (step > 0) {
+      setStep((prev) => prev - 1);
+    }
+  };
+  const handleNext = () => {
+    if (step < skills.length) {
+      setStep((prev) => prev + 1);
+    }
+  };
+
   // apply "is-done" className on divs having classNames "cd-timeline-img" and "cd-timeline-content"
   // to mark that SKILL as completed...
 
   return (
+    
     <div className="bg-[#111C25] w-11/12 md:w-10/12 mx-auto my-10 py-14 px-8 md:px-16 rounded-3xl">
+      {/* Button */}
       <div className="flex justify-between">
-        <Button>Prev Step</Button>
-        <Button>Next Step</Button>
+        <Button onClick={handlePrev}>Prev Step</Button>
+        <Button onClick={handleNext}>Next Step</Button>
       </div>
       {/* Timeline */}
       <div className="w-[10%] hidden xl:block h-[4px] bg-black opacity-80 m-auto" />
       <section id="cd-timeline" className="cd-container font-bold">
-        <div className="cd-timeline-block">
-          <div className="cd-timeline-img is-done cd-picture"></div>
-          <div className="cd-timeline-content is-done">
-            <h2>HTML, CSS</h2>
-          </div>
-        </div>
-        {/* cd-timeline-block */}
-        <div className="cd-timeline-block">
-          <div className="cd-timeline-img is-done cd-movie"></div>{" "}
-          {/* cd-timeline-img is-done */}
-          <div className="cd-timeline-content is-done">
-            <h2>Javascript</h2>
-          </div>{" "}
-          {/* cd-timeline-content */}
-        </div>
-        {/* cd-timeline-block */}
-        <div className="cd-timeline-block">
-          <div className="cd-timeline-img is-done cd-movie"></div>{" "}
-          {/* cd-timeline-img is-done */}
-          <div className="cd-timeline-content">
-            <h2>React JS</h2>
-          </div>{" "}
-          {/* cd-timeline-content */}
-        </div>
-        {/* cd-timeline-block */}
-        <div className="cd-timeline-block">
-          <div className="cd-timeline-img cd-movie"></div>{" "}
-          {/* cd-timeline-img is-done */}
-          <div className="cd-timeline-content">
-            <h2>Node JS</h2>
-          </div>{" "}
-          {/* cd-timeline-content */}
-        </div>
-        {/* cd-timeline-block */}
-        <div className="cd-timeline-block">
-          <div className="cd-timeline-img cd-movie"></div>{" "}
-          {/* cd-timeline-img is-done */}
-          <div className="cd-timeline-content">
-            <h2>Express JS</h2>
-          </div>{" "}
-          {/* cd-timeline-content */}
-        </div>
-        {/* cd-timeline-block */}
-        <div className="cd-timeline-block">
-          <div className="cd-timeline-img cd-movie"></div>{" "}
-          {/* cd-timeline-img is-done */}
-          <div className="cd-timeline-content">
-            <h2>Mongo DB</h2>
-          </div>{" "}
-          {/* cd-timeline-content */}
-        </div>
+        {skills.map((ele, index) => {
+          return (
+            <div className="cd-timeline-block">
+              <div
+                className={`cd-timeline-img ${
+                  step > index ? "is-done" : ""
+                } cd-picture`}
+              ></div>
+              <div
+                className={`cd-timeline-content ${
+                  step > index ? "is-done" : ""
+                }`}
+              >
+                <h2>{ele}</h2>
+              </div>
+            </div>
+          );
+        })}
       </section>
       <div className="w-[10%] hidden xl:block h-[4px] bg-black opacity-80 m-auto" />
-
-      {/* Button */}
 
       {/* Suggested courses */}
       <div className="my-10">
