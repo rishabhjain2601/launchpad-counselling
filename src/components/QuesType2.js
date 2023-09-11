@@ -1,17 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react'
 import Button from "../utils/Button";
 
 const QuesType2 = () => {
-  const [option, setOption] = useState("Medium");
+  const [option, setOption] = useState("Medium")
 
-  const onOptionChange = (e) => {
-    setOption(e.target.value);
-  };
+  const onOptionChange = e => {
+    setOption(e.target.value)
+  }
+  const [ans2, setAns2] = useState("")
+
+  useEffect(() => {
+    // This effect will run whenever ans2 or option changes.
+    console.log(ans2);
+  }, [ans2]);
+
+  function getSelectedLabel() {
+    const selectedOption = document.querySelector('input[name="ans"]:checked');
+    if (selectedOption) {
+      const labelElement = document.querySelector(`label[for="${selectedOption.id}"]`);
+      if (labelElement && option != "ans5") {
+        setAns2(`${labelElement.textContent}`);
+      }
+      if (option === "ans5") {
+        const abc = document.getElementById('ans51')
+        setAns2(`${abc.value}`)
+      }
+    }
+  }
   return (
-    <div className="rounded-3xl mx-auto p-10 my-auto text-xl bg-[#111C25] opacity-80 w-[90%] lg:w-[60%]">
-      <div>
-        Q. Which of the following activities do you enjoy the most in your free
-        time?
+    <div className='rounded-3xl mx-auto my-auto text-xl bg-gray-800 opacity-80 w-[50vw] h-[355px] pt-5 pl-4'>
+      <div className='ml-[2%] mb-6'>
+        Q. Which of the following activities do you enjoy the most in your free time?
       </div>
       <form action="" className="mx-auto">
         <div className="w-[90%] ml-[3.5%] my-4 rounded-2xl ">

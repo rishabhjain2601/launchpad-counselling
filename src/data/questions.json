@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "question": "Any course u have completed?",
+    "options": [],
+    "isMCQ": false
+  },
+  {
+    "id": 2,
+    "question": "I want to pursue some career related to ___",
+    "options": [],
+    "isMCQ": false
+  },
+  {
+    "id": 3,
+    "question": "What skills do you have?",
+    "options": [],
+    "isMCQ": false
+  },
+  {
+    "id": 4,
+    "question": "Do you prefer academics or extracurriculars",
+    "options": [],
+    "isMCQ": false
+  },
+  {
+    "id": 5,
+    "question": "Which one do you enjoy more:",
+    "options": ["Talking to people", "Building/learning things"],
+    "isMCQ": true
+  },
+  {
+    "id": 6,
+    "question": "Which of the following do you enjoy doing the most?",
+    "options": [
+      "a. Analyzing data and solving complex problems",
+      "b. Creating or designing something new",
+      "c. Helping and serving others",
+      "d. Expressing yourself through art or writing"
+    ],
+    "isMCQ": true
+  },
+  {
+    "id": 7,
+    "question": "Which of the following would be your ideal job perk?",
+    "options": [
+      "a. High salary and job security",
+      "b. Flexible schedule and work-life balance",
+      "c. Opportunities for career advancement and growth",
+      "d. Making a positive impact on others or the world"
+    ],
+    "isMCQ": true
+  },
+  {
+    "id": 8,
+    "question": "Do you like working with technology?",
+    "options": [],
+    "isMCQ": false
+  },
+  {
+    "id": 9,
+    "question": "Any other thing you would like us to know?",
+    "options": [],
+    "isMCQ": false
+  }
+]
