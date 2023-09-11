@@ -11,6 +11,7 @@ import QuesType2 from "./components/QuesType2";
 import QuesType3 from "./components/QuesType3";
 import SkillRoadmap from "./pages/SkillRoadmap";
 import Roadmap from "./pages/Roadmap";
+import CareerQuiz from "./pages/CareerQuiz";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="result" index element={<Roadmap />} />
             <Route path="q3" index element={<QuesType3 />} />
           </Route>
+          <Route path="/quiz" index element={<CareerQuiz />} />
         </Route>
       </Routes>
     </Router>
