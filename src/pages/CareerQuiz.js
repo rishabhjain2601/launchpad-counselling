@@ -2,6 +2,10 @@ import React from 'react'
 import QuesType1 from '../components/QuesType1'
 import QuesType2 from '../components/QuesType2'
 import QuesType3 from '../components/QuesType3'
+import questions from '../data/questions.json'
+import {ans1} from '../components/QuesType1'
+import {ans2} from '../components/QuesType2'
+import {ans3} from '../components/QuesType3'
 
 const CareerQuiz = () => {
     return (
