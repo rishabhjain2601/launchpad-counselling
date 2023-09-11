@@ -73,7 +73,6 @@ body {
 }
 
 
-
 /* Roadmap css */
 
 .cd-container {
@@ -167,6 +166,7 @@ body {
 }
 
 .cd-timeline-content {
+  /* cursor: pointer; */
   position: relative;
   margin-left: 60px;
   margin-right: 30px;
