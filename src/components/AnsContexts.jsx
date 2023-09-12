@@ -2,20 +2,21 @@ import React,{useContext,createContext, useState} from 'react'
 
 export const finalAnsContext = createContext([]);
 
-export function AnsContexts({ children }) {
+export function AnsContexts(ans1) {
   const [finalAns, setFinalAns] = useState([]);
 
-  const addItem = (ansName) => {
+  function addItem (ansName) {
     setFinalAns([...finalAns, ansName]);
     console.log(finalAns)
   };
 
-  const contextValue = { finalAns, addItem };
+  // const contextValue = { finalAns, addItem };
 
   return (
-    <finalAnsContext.Provider value={contextValue}>
-      {children}
-    </finalAnsContext.Provider>
+    // <finalAnsContext.Provider value={contextValue}>
+      // {children}
+    // </finalAnsContext.Provider>
+    addItem(ans1)
   );
 }
 
