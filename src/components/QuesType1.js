@@ -1,22 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, createContext, useContext } from 'react'
 import Button from "../utils/Button";
+import { finalAnsContext} from './AnsContexts';
 
+// const ans1Context = createContext('')
 
-const QuesType1 = ({ansArray1, questions, currentQuestionIndex, setCurrentQuestionIndex }) => {
+// export function setAns1a(ans1a) {
+//   return (<ans1Context.Provider ans={ans1a}>
+//   </ans1Context.Provider>)
+// }
+
+const QuesType1 = ({questions, currentQuestionIndex, setCurrentQuestionIndex }) => {
   const [ans1, setAns1] = useState('');
-
+  const { addItem } = useContext(finalAnsContext);
   function handleChange(e) {
     e.preventDefault();
     setAns1(e.target.value);
   }
 
   const clickNext = () => {
-    console.log(ans1);
+    // console.log(ans1);
+    addItem(`${ans1}`)
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   }
-  
+
   const clickPrev = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
