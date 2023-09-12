@@ -26,7 +26,7 @@
   {
     "id": 5,
     "question": "Which one do you enjoy more:",
-    "options": ["Talking to people", "Building/learning things"],
+    "options": ["Talking to people", "Building/learning things", "abcd", "efgh"],
     "isMCQ": true
   },
   {
@@ -60,6 +60,12 @@
   {
     "id": 9,
     "question": "Any other thing you would like us to know?",
+    "options": [],
+    "isMCQ": false
+  },
+  {
+    "id": 10,
+    "question": "Any other thing?",
     "options": [],
     "isMCQ": false
   }

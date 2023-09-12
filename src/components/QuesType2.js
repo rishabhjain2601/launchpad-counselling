@@ -1,38 +1,57 @@
 import React, { useState, useEffect } from 'react'
 import Button from "../utils/Button";
 
-const QuesType2 = () => {
-  const [option, setOption] = useState("Medium")
-
-  const onOptionChange = e => {
-    setOption(e.target.value)
-  }
+const QuesType2 = ({onSubmit ,questions, currentQuestionIndex, setCurrentQuestionIndex }) => {
+  const [option, setOption] = useState("")
   const [ans2, setAns2] = useState("")
+  function handleChange(e) {
+    e.preventDefault();
+    setAns2(e.target.value);
+  }
+  const onOptionChange = (e) => {
+    const newOption = e.target.value;
+    setOption(`${newOption}`);
+    const newOptionId = e.target.id
+    // Use await to wait for the state update to complete
+    getSelectedLabel(newOptionId);
+  };
+
+  const getSelectedLabel = async (selectedOption) => {
+    const labelElement = document.querySelector(`label[for="${selectedOption}"]`);
+    if (labelElement && selectedOption !== "option5") {
+      const labelText = labelElement.textContent;
+      setAns2(labelText);
+    }
+    // console.log(ans2)
+  };
 
   useEffect(() => {
     // This effect will run whenever ans2 or option changes.
-    console.log(ans2);
-  }, [ans2]);
+    getSelectedLabel();
+  }, [option]);
 
-  function getSelectedLabel() {
-    const selectedOption = document.querySelector('input[name="ans"]:checked');
-    if (selectedOption) {
-      const labelElement = document.querySelector(`label[for="${selectedOption.id}"]`);
-      if (labelElement && option != "ans5") {
-        setAns2(`${labelElement.textContent}`);
-      }
-      if (option === "ans5") {
-        const abc = document.getElementById('ans51')
-        setAns2(`${abc.value}`)
-      }
+  const clickNext = () => {
+    if (currentQuestionIndex < questions.length - 1 && ans2) {
+      onSubmit(`${ans2}`)
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setOption(null)
+      document.getElementById('ansArea2').value = ''
+      setAns2(null)
     }
   }
+
+  const clickPrev = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
+  }
+
   return (
-    <div className='rounded-3xl mx-auto my-auto text-xl bg-gray-800 opacity-80 w-[50vw] h-[355px] pt-5 pl-4'>
+    <div className='rounded-3xl mx-auto my-auto text-xl bg-gray-800 opacity-80 w-[90%] lg:w-[60%] h-[355px] pt-5 pl-4'>
       <div className='ml-[2%] mb-6'>
-        Q. Which of the following activities do you enjoy the most in your free time?
+        Q. {questions[currentQuestionIndex].question}
       </div>
-      <form action="" className="mx-auto">
+      <form action=""  className="mx-auto">
         <div className="w-[90%] ml-[3.5%] my-4 rounded-2xl ">
           <input
             type="radio"
@@ -44,7 +63,7 @@ const QuesType2 = () => {
             onChange={onOptionChange}
           />
           <label htmlFor="option1">
-            Playing musical instruments or singing
+              {questions[currentQuestionIndex].options[0]}
           </label>
           <br />
           <input
@@ -57,7 +76,7 @@ const QuesType2 = () => {
             onChange={onOptionChange}
           />
           <label htmlFor="option2">
-            Solving puzzles, riddles, or brain teasers
+              {questions[currentQuestionIndex].options[1]}
           </label>
           <br />
           <input
@@ -70,7 +89,7 @@ const QuesType2 = () => {
             onChange={onOptionChange}
           />
           <label htmlFor="option3">
-            Engaging in physical activities like sports or fitness
+              {questions[currentQuestionIndex].options[2]}
           </label>
           <br />
           <input
@@ -83,7 +102,7 @@ const QuesType2 = () => {
             onChange={onOptionChange}
           />
           <label htmlFor="option4">
-            Reading and exploring different books and literature
+              {questions[currentQuestionIndex].options[3]}
           </label>
           <br />
           <input
@@ -99,14 +118,16 @@ const QuesType2 = () => {
             Other :{" "}
             <input
               type="text"
+              id='ansArea2'
               className="text-black outline-white px-2 rounded-full w-[70%]"
               disabled={option !== "ans5"}
+              onChange={handleChange}
             />
           </label>
         </div>
-        <div className="flex justify-between mt-5">
-          <Button>Previous</Button>
-          <Button>Next</Button>
+        <div className="flex justify-between mt-5 mr-[2%]">
+          <Button onClick={clickPrev}>Previous</Button>
+          <Button type="submit" onClick={clickNext}>Next</Button>
         </div>
       </form>
     </div>

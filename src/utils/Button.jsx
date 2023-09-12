@@ -4,7 +4,7 @@ const Button = ({ children, fontSize = "17px", onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="button text-center"
+      className="button text-center "
       style={{ fontSize: fontSize }}
     >
       {children}
