@@ -47,6 +47,14 @@ body {
   line-height: 60px; /* 115.385% */
 }
 
+.home-font1 {
+  font-family: Aoboshi One;
+}
+
+.home-font2 {
+  font-family: Montserrat;
+}
+
 .card {
   cursor: pointer;
   display: flex;
