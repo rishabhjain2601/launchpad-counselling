@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, createContext } from 'react'
 import QuesType1 from '../components/QuesType1'
 import QuesType2 from '../components/QuesType2'
 import QuesType3 from '../components/QuesType3'
@@ -7,23 +7,27 @@ import { ans1 } from '../components/QuesType1'
 import { ans2 } from '../components/QuesType2'
 import { ans3 } from '../components/QuesType3'
 
+
+
 const CareerQuiz = () => {
 
     // Replace this condition with the actual condition you want to check
-    const [ansArray, setAnsArray] = useState('')
+    const [ansArray, setAnsArray] = useState([''])
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const ques = questions[currentQuestionIndex].isMCQ;
-
-    const updateValue = (newValue) => {
-        setAnsArray([...ansArray, newValue])
+    const ans = 'hello'
+    const updateValue = () => {
+        // setAnsArray([...ansArray, `${ans}`])
+        ansArray.push(`${ans}`)
+        console.log(ans)
+    }
+    const bv = ()=>{
         console.log(ansArray)
     }
-
     const quizQues = () => {
         if (!ques) {
             return (
                 <QuesType1
-                    ansArray1={updateValue}
                     questions={questions}
                     currentQuestionIndex={currentQuestionIndex}
                     setCurrentQuestionIndex={setCurrentQuestionIndex}
@@ -48,6 +52,7 @@ const CareerQuiz = () => {
             <div className='mt-8'>
                 {quizQues()}
             </div>
+            <button onClick={bv}>Hello </button>
             <div className='mx-auto w-fit text-xl mt-6'>Note : Try to fill it with detailed explanation for better results.</div>
         </div>
     )
