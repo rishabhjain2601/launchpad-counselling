@@ -22,6 +22,7 @@ const QuesType1 = ({onSubmit ,questions, currentQuestionIndex, setCurrentQuestio
       onSubmit(`${ans1}`)
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       document.getElementById('ansArea1').value = ''
+      setAns1('')
     }
     
   }
