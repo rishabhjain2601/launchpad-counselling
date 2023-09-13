@@ -12,6 +12,7 @@ import QuesType3 from "./components/QuesType3";
 import SkillRoadmap from "./pages/SkillRoadmap";
 import Roadmap from "./pages/Roadmap";
 import CareerQuiz from "./pages/CareerQuiz";
+import Aptitude_form from "./components/Aptitude_form";
 
 function App() {
   return (
@@ -36,9 +37,7 @@ function App() {
             index
             element={<SkillApiTesting />}
           />
-          <Route path="/q1" index element={<QuesType1 />} />
-          <Route path="/q2" index element={<QuesType2 />} />
-          <Route path="/q3" index element={<QuesType3 />} />
+          <Route path="/form" index element={<Aptitude_form />} />
           <Route path="/roadmap" element={<SkillRoadmap />}>
             <Route path="result" index element={<Roadmap />} />
             <Route path="q3" index element={<QuesType3 />} />
