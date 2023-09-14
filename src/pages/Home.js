@@ -7,9 +7,10 @@ import HomeLights from "../assets/home-lights.png";
 const Home = () => {
   return (
     <>
-      <div className="flex justify-center text-gray-50">
-        <div className="w-11/12">
-          <div className="mt-14 text-center relative">
+      <div className="flex justify-center text-gray-50 overflow-hidden">
+        <div className="w-11/12 max-w-screen-xl relative">
+          <div class="multi-layered-glow"></div>
+          <div className="mt-14 text-center">
             <h1 className="select-none text-5xl sm:text-6xl font-extrabold home-font1 lg:tracking-wide">
               One Stop Solution
               <br />
@@ -133,7 +134,7 @@ const Home = () => {
             <h3
               className="text-xl sm:text-2xl text-center font-semibold text-[#9AAFC3] mt-2 sm:mt-4 sm:tracking-wider home-font2"
             >
-              Latest news in DAOs and Web3
+              Latest news at LaunchPad
             </h3>
             <div className="text-center mt-4 sm:mt-8">
               <input
@@ -151,7 +152,7 @@ const Home = () => {
             </div>
           </div>
           <div className="my-16 flex flex-col items-center">
-            <h2 className="text-3xl sm:text-4xl font-semibold home-font1">What's your DAO idea?</h2>
+            <h2 className="text-3xl sm:text-4xl font-semibold home-font1">What's your Idea?</h2>
             <h3
               className="text-xl sm:text-2xl font-semibold text-[#9AAFC3] mt-4 md:tracking-wide home-font1"
             >

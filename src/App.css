@@ -80,7 +80,6 @@ body {
   box-shadow: 0px 0px 20px 0px rgba(98, 126, 234, 0.3);
 }
 
-
 /* Roadmap css */
 
 .cd-container {
@@ -146,12 +145,16 @@ body {
   height: 30px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 0 4px #0a1117, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 0 0 4px #0a1117,
+    inset 0 2px 0 rgba(0, 0, 0, 0.08),
     0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 
 .is-done {
-  box-shadow: 0 0 0 4px #00ac00, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 0 0 4px #00ac00,
+    inset 0 2px 0 rgba(0, 0, 0, 0.08),
     0 3px 0 4px rgba(0, 0, 0, 0.05) !important;
   background: #00ac00 !important;
 }
@@ -250,5 +253,39 @@ body {
     left: auto;
     right: 122%;
     text-align: right;
+  }
+}
+
+.multi-layered-glow {
+  width: 300px;
+  height: 300px;
+  transform: scale(4);
+  opacity: 0.6;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 150px);
+  z-index: -2;
+  background: radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 125, 255, 0.7),
+      transparent 20%
+    ),
+    radial-gradient(circle at 50% 50%, rgba(0, 125, 125, 0.7), transparent 25%),
+    radial-gradient(circle at 50% 50%, white, transparent 30%);
+  -webkit-mask: radial-gradient(circle at 50% 50%, black 0%, transparent 30%);
+  animation: round 4s ease-in-out infinite;
+}
+
+@keyframes round {
+  0%, 100%{
+    transform: scale(4);
+    opacity: 0.6;
+  }
+  25%, 75%{
+    transform: scale(5);
+    opacity: 0.5;
+  }
+  50%{
+    transform: scale(3.5);
   }
 }
