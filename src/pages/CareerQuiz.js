@@ -3,29 +3,60 @@ import QuesType1 from '../components/QuesType1'
 import QuesType2 from '../components/QuesType2'
 import QuesType3 from '../components/QuesType3'
 import questions from '../data/questions.json'
-
+import { useNavigate } from 'react-router-dom'
+import userData from '../data/userData.json';
 
 const CareerQuiz = () => {
+    const navigate = useNavigate();
 
+    const userData1 = {
+        "personality": ['r', 'e'],
+        "answers": [
+            { "question": "answer" }
+        ]
+    }
     // Replace this condition with the actual condition you want to check
     const [ansArray, setAnsArray] = useState([])
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const ques = questions[currentQuestionIndex].isMCQ;
+    const quesType = questions[currentQuestionIndex].isMCQ;
+    const quest = `${questions[currentQuestionIndex].question}`
+
     const updateValue = (input) => {
         // setAnsArray([...ansArray, `${ans}`])
-        ansArray.push(`${input}`)
+        ansArray.push({ quest, input })
         console.log(ansArray)
     }
+    const passValue = (input) => {
+        // setAnsArray([...ansArray, `${ans}`])
+        ansArray.push({ quest, input })
+        console.log(ansArray)
+        navigate('/counselling-result')
+        userData.push(ansArray)
+        console.log(userData)
+    }
     const quizQues = () => {
-        if (!ques) {
-            return (
-                <QuesType1
-                    onSubmit={updateValue}
-                    questions={questions}
-                    currentQuestionIndex={currentQuestionIndex}
-                    setCurrentQuestionIndex={setCurrentQuestionIndex}
-                />
-            );
+        if (!quesType) {
+            if (currentQuestionIndex < 9) {
+                return (
+                    <QuesType1
+                        onSubmit={updateValue}
+                        questions={questions}
+                        currentQuestionIndex={currentQuestionIndex}
+                        setCurrentQuestionIndex={setCurrentQuestionIndex}
+                    />
+                );
+            }
+            else {
+                return (
+                    <QuesType1
+                        onSubmit={passValue}
+                        questions={questions}
+                        currentQuestionIndex={currentQuestionIndex}
+                        setCurrentQuestionIndex={setCurrentQuestionIndex}
+                    />
+
+                );
+            }
         }
         else {
             return (
@@ -39,7 +70,7 @@ const CareerQuiz = () => {
         }
     };
 
-    const wPercent = `${((currentQuestionIndex+1)*100)/(questions.length)}%`
+    const wPercent = `${((currentQuestionIndex + 1) * 100) / (questions.length)}%`
 
     return (
         <div>

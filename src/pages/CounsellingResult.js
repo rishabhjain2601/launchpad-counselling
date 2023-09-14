@@ -127,7 +127,7 @@ const CounsellingResult = () => {
               style={{ height: "1px", opacity: "10%" }}
             />
             <table className="table-auto md:mx-auto shrink">
-              <caption class="caption-top text-lg my-3 underline">
+              <caption className="caption-top text-lg my-3 underline">
                 Some University courses you can consider!
               </caption>
 
