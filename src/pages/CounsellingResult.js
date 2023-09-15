@@ -4,10 +4,33 @@ import Stream from "../assets/stream-icon.png";
 import Exam from "../assets/exam-icon.png";
 import Card from "../utils/Card";
 import Button from "../utils/Button";
+import { useLocation } from "react-router-dom";
 
 const CounsellingResult = () => {
+  const location = useLocation()
+  console.log(location.state)
   // format of API responset
   // inme se koi bhi value empty ho sakti hai. so use Nullish Coalescing ('??') and conditional chaining (streams?.name)
+
+  const newFormat = {
+    "personality": "Conventional (Organizer)",
+    "degrees": [
+      "B.Ed"
+    ],
+    "careers": [
+      {
+        "name": "Teacher",
+        "reason": "The student's skill in teaching makes them a suitable candidate for a career in education. They have the ability to impart knowledge and guide others in their learning journey."
+      }
+    ],
+    "streams": [
+      {
+        "name": "Physics, Chemistry, Biology",
+        "reason": "The student's skill in teaching can be further developed by studying subjects like Biology, which will enable them to teach science in a comprehensive manner. Additionally, studying Physics and Chemistry will provide a strong foundation in scientific principles and concepts, allowing them to effectively teach these subjects as well."
+      }
+    ]
+  }
+
   const CounsellingResult = {
     streams: [
       {

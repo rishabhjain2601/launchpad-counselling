@@ -37,7 +37,7 @@ const QuesType1 = ({ onSubmit, questions, currentQuestionIndex, setCurrentQuesti
   return (
     <div className="rounded-3xl mx-auto p-10 text-xl bg-[#111C25] opacity-80 w-[90%] lg:w-[60%]">
       <div>
-        Q. {questions[currentQuestionIndex].question}
+        Q. {questions[currentQuestionIndex]?.question}
       </div>
       <form action="" className="mx-auto">
         <textarea

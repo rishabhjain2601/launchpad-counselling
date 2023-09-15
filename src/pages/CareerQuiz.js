@@ -5,34 +5,51 @@ import QuesType3 from '../components/QuesType3'
 import questions from '../data/questions.json'
 import { useNavigate } from 'react-router-dom'
 import userData from '../data/userData.json';
+import axios from 'axios'
 
 const CareerQuiz = () => {
     const navigate = useNavigate();
 
-    const userData1 = {
+    const userDataFormat = {
         "personality": ['r', 'e'],
         "answers": [
             { "question": "answer" }
         ]
     }
+
+    const callApi= async(userData)=>{
+        try{
+          axios.post('http://localhost:4567/api/recommendedCareer', {userData: userData})
+          .then((response)=>{
+            // const obj = JSON.parse(response.data.output)
+            const obj = response.data.output
+            navigate('/counselling-result', {state: {obj}})
+          })
+        } catch(error){
+          console.log(error.response)
+        }
+    }
+
     // Replace this condition with the actual condition you want to check
     const [ansArray, setAnsArray] = useState([])
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const quesType = questions[currentQuestionIndex].isMCQ;
-    const quest = `${questions[currentQuestionIndex].question}`
+    const quesType = questions[currentQuestionIndex]?.isMCQ;
+    const quest = `${questions[currentQuestionIndex]?.question}`
 
     const updateValue = (input) => {
         // setAnsArray([...ansArray, `${ans}`])
-        ansArray.push({ quest, input })
+        ansArray.push({ question:quest, answer:input })
         console.log(ansArray)
     }
-    const passValue = (input) => {
+    const passValue = async (input) => {
         // setAnsArray([...ansArray, `${ans}`])
-        ansArray.push({ quest, input })
+        ansArray.push({ question:quest, answer:input })
         console.log(ansArray)
-        navigate('/counselling-result')
         userData.push(ansArray)
         console.log(userData)
+        const userDataObj = {personality: userData[0], answers: userData[1]}
+        await callApi(userDataObj)
+        // navigate('/counselling-result', {state: {userDataObj}})
     }
     const quizQues = () => {
         if (!quesType) {

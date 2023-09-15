@@ -49,7 +49,7 @@ const QuesType2 = ({onSubmit ,questions, currentQuestionIndex, setCurrentQuestio
   return (
     <div className='rounded-3xl mx-auto my-auto text-xl bg-gray-800 opacity-80 w-[90%] lg:w-[60%] h-[355px] pt-5 pl-4'>
       <div className='ml-[2%] mb-6'>
-        Q. {questions[currentQuestionIndex].question}
+        Q. {questions[currentQuestionIndex]?.question}
       </div>
       <form action=""  className="mx-auto">
         <div className="w-[90%] ml-[3.5%] my-4 rounded-2xl ">
@@ -63,7 +63,7 @@ const QuesType2 = ({onSubmit ,questions, currentQuestionIndex, setCurrentQuestio
             onChange={onOptionChange}
           />
           <label htmlFor="option1">
-              {questions[currentQuestionIndex].options[0]}
+              {questions[currentQuestionIndex]?.options[0]}
           </label>
           <br />
           <input
@@ -76,7 +76,7 @@ const QuesType2 = ({onSubmit ,questions, currentQuestionIndex, setCurrentQuestio
             onChange={onOptionChange}
           />
           <label htmlFor="option2">
-              {questions[currentQuestionIndex].options[1]}
+              {questions[currentQuestionIndex]?.options[1]}
           </label>
           <br />
           <input
@@ -89,7 +89,7 @@ const QuesType2 = ({onSubmit ,questions, currentQuestionIndex, setCurrentQuestio
             onChange={onOptionChange}
           />
           <label htmlFor="option3">
-              {questions[currentQuestionIndex].options[2]}
+              {questions[currentQuestionIndex]?.options[2]}
           </label>
           <br />
           <input
@@ -102,7 +102,7 @@ const QuesType2 = ({onSubmit ,questions, currentQuestionIndex, setCurrentQuestio
             onChange={onOptionChange}
           />
           <label htmlFor="option4">
-              {questions[currentQuestionIndex].options[3]}
+              {questions[currentQuestionIndex]?.options[3]}
           </label>
           <br />
           <input
