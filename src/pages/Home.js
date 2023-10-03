@@ -3,8 +3,10 @@ import DownArrow from "../assets/down-arrow-home.png";
 import QuickLink from "../assets/quick-link.png";
 import HomeStar from "../assets/home-star.png";
 import HomeLights from "../assets/home-lights.png";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate()
   return (
     <>
       <div className="flex justify-center text-gray-50 overflow-hidden">
@@ -22,7 +24,7 @@ const Home = () => {
           </div>
           <div className="m-6 flex flex-col items-center">
             <button
-              className="rounded-md bg-yellow-500 px-10 py-2 sm:px-12 sm:py-3 text-lg font-extrabold home-font2 text-gray-900 hover:bg-yellow-400 active:scale-95 shadow-md shadow-yellow-300/50"
+              className="rounded-md bg-yellow-500 px-10 py-2 sm:px-12 sm:py-3 text-lg font-extrabold home-font2 text-gray-900 hover:bg-yellow-400 active:scale-95 shadow-md shadow-yellow-300/50" onClick={()=>(navigate('/form'))}
             >
               GET STARTED
             </button>
